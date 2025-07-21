@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Talk Daily</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container center">
+    <img src="assets/logo.png" alt="Heart Talk Daily Logo" class="logo">
+    <h1>Welcome to Heart Talk Daily</h1>
+    <div class="pcenter">
+      <p>Please choose your gender to continue:</p>
+
+    </div>
+    <form id="genderForm">
+      <div class="gender-buttons">
+        <button type="button" data-gender="male" class="gender-btn">I'm Male</button>
+        <button type="button" data-gender="female" class="gender-btn">I'm Female</button>
+      </div>
+      <input type="hidden" name="gender" id="genderInput">
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
