@@ -97,6 +97,16 @@ button[type="submit"] {
   text-decoration: none;
   transition: background-color 0.3s;
 }
+
+.index-list {
+  padding-left: 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.index-list li {
+  list-style-type: decimal;
+}
+
 .btn.buy-btn:hover {
   background-color: #c44141;
 }
