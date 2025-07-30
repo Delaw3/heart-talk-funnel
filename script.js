@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("email", email);
 
       // Send to webhook
-      fetch("https://hearttalk.app.n8n.cloud/webhook-test/email-capture", {
+      fetch("https://hearttalk.app.n8n.cloud/webhook/email-capture", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, firstName }),
