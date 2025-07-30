@@ -1,31 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const emailPopup = document.getElementById("emailPopup");
-  const loader = document.getElementById("loader");
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("emailPopup");
+  const form = document.getElementById("emailForm");
   const bookSection = document.getElementById("bookSection");
-  const emailForm = document.getElementById("emailForm");
+  const loader = document.getElementById("loader");
 
-  // Show email popup after 3 seconds
+  // Show the email popup after 3 seconds
   setTimeout(() => {
-    emailPopup.classList.remove("hidden");
+    popup.classList.remove("hidden");
   }, 3000);
 
-  emailForm.addEventListener("submit", function (e) {
+  // Handle form submission
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Optional: collect email value
-    const email = document.getElementById("emailInput").value;
+    const email = document.getElementById("emailInput").value.trim();
+    if (email) {
+      // Hide the popup
+      popup.classList.add("hidden");
 
-    // Show loader
-    loader.classList.remove("hidden");
+      // Show loader
+      loader.classList.remove("hidden");
 
-    // Simulate loading
-    setTimeout(() => {
-      // Hide popup and loader
-      emailPopup.classList.add("hidden");
-      loader.classList.add("hidden");
-
-      // Show book section
-      bookSection.classList.remove("hidden");
-    }, 2000); // 2 seconds loading
+      // After delay, hide loader and show books
+      setTimeout(() => {
+        loader.classList.add("hidden");
+        bookSection.classList.remove("hidden");
+      }, 2500);
+    }
   });
 });
