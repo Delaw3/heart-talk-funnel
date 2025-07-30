@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const fromShared = params.get("from") === "shared";
   const emailCollected = localStorage.getItem("emailCollected") === "true";
 
-  // Only show popup if link is shared OR if no email is collected
+  // Show popup if link is shared or if email not collected
   if (fromShared || !emailCollected) {
     setTimeout(() => {
       popup.classList.remove("hidden");
@@ -20,10 +20,21 @@ window.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const firstName = document.getElementById("firstNameInput").value.trim();
     const email = document.getElementById("emailInput").value.trim();
-    if (email) {
-      // Store that email was collected
+
+    if (email && firstName) {
+      // Save to localStorage
       localStorage.setItem("emailCollected", "true");
+      localStorage.setItem("firstName", firstName);
+      localStorage.setItem("email", email);
+
+      // Send to webhook
+      fetch("https://hearttalk.app.n8n.cloud/webhook-test/email-capture", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, firstName }),
+      });
 
       popup.classList.add("hidden");
       loader.classList.remove("hidden");
@@ -35,3 +46,5 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+ 
