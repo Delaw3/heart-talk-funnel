@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="book-section hidden" id="bookSection">
   <div class="container">
-     <div class="center">
+     <div class="center" >
     <img src="assets/female-book.jpg" alt="Book Cover" class="book-cover">
     <h1>Stay Away from the Toxic Man</h1>
     <p><strong>How to free yourself from a destructive relationship and regain your self-esteem</strong></p>
@@ -102,9 +103,28 @@
    
 
     <div class="cta">
-      <h4 class="center>"<strong>Love what you see?</strong></h4>
+      <h4 class="center"><strong>Love what you see?</strong></h4>
       <a href="https://copecart.com/us/products/234e9edc/p/delawman" class="btn buy-btn blink">Buy Full Book Now</a>
     </div>
   </div>
+  </div>
+
+  <!-- EMAIL POPUP -->
+<div class="popup-overlay hidden" id="emailPopup">
+  <div class="popup-content">
+    <h2>Join Heart Talk Daily</h2>
+    <p>Enter your email to view this book:</p>
+    <form id="emailForm">
+      <input type="email" id="emailInput" placeholder="Enter your email" required autocomplete="email" />
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+</div>
+
+<!-- LOADER -->
+<div class="loader-overlay hidden" id="loader">
+  <div class="spinner"></div>
+</div>
+ <script defer src="script.js"></script>
 </body>
 </html>

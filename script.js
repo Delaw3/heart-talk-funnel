@@ -4,24 +4,30 @@ window.addEventListener("DOMContentLoaded", () => {
   const bookSection = document.getElementById("bookSection");
   const loader = document.getElementById("loader");
 
-  // Show the email popup after 3 seconds
-  setTimeout(() => {
-    popup.classList.remove("hidden");
-  }, 3000);
+  const params = new URLSearchParams(window.location.search);
+  const fromShared = params.get("from") === "shared";
+  const emailCollected = localStorage.getItem("emailCollected") === "true";
 
-  // Handle form submission
+  // Only show popup if link is shared OR if no email is collected
+  if (fromShared || !emailCollected) {
+    setTimeout(() => {
+      popup.classList.remove("hidden");
+    }, 3000);
+  } else {
+    bookSection.classList.remove("hidden");
+  }
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const email = document.getElementById("emailInput").value.trim();
     if (email) {
-      // Hide the popup
-      popup.classList.add("hidden");
+      // Store that email was collected
+      localStorage.setItem("emailCollected", "true");
 
-      // Show loader
+      popup.classList.add("hidden");
       loader.classList.remove("hidden");
 
-      // After delay, hide loader and show books
       setTimeout(() => {
         loader.classList.add("hidden");
         bookSection.classList.remove("hidden");
