@@ -1,22 +1,31 @@
-document.querySelectorAll('.gender-btn').forEach(btn => {
-  btn.addEventListener('click', function () {
-    document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-    document.getElementById('genderInput').value = this.dataset.gender;
-  });
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const emailPopup = document.getElementById("emailPopup");
+  const loader = document.getElementById("loader");
+  const bookSection = document.getElementById("bookSection");
+  const emailForm = document.getElementById("emailForm");
 
-document.getElementById('genderForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const gender = document.getElementById('genderInput').value;
-  const email = document.getElementById('email').value;
-  if (!gender || !email) {
-    alert('Please select a gender and enter your email.');
-    return;
-  }
-  if (gender === 'female') {
-    window.location.href = 'preview-female.html';
-  } else {
-    window.location.href = 'preview-male.html';
-  }
+  // Show email popup after 3 seconds
+  setTimeout(() => {
+    emailPopup.classList.remove("hidden");
+  }, 3000);
+
+  emailForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Optional: collect email value
+    const email = document.getElementById("emailInput").value;
+
+    // Show loader
+    loader.classList.remove("hidden");
+
+    // Simulate loading
+    setTimeout(() => {
+      // Hide popup and loader
+      emailPopup.classList.add("hidden");
+      loader.classList.add("hidden");
+
+      // Show book section
+      bookSection.classList.remove("hidden");
+    }, 2000); // 2 seconds loading
+  });
 });

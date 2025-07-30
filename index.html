@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Heart Talk Daily</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <div class="container center">
-    <img src="assets/logo.png" alt="Heart Talk Daily Logo" class="logo">
+    <img src="assets/logo.png" alt="Heart Talk Daily Logo" class="logo" loading="lazy"/>
     <h1>Welcome to Heart Talk Daily</h1>
     <div class="pcenter">
-      <p>Please choose your gender to continue:</p>
-
+      <p>Choose a book to start your journey:</p>
     </div>
-    <form id="genderForm">
-      <div class="gender-buttons">
-        <button type="button" data-gender="male" class="gender-btn">I'm Male</button>
-        <button type="button" data-gender="female" class="gender-btn">I'm Female</button>
-      </div>
-      <input type="hidden" name="gender" id="genderInput">
-      <input type="email" id="email" placeholder="Enter your email" required>
-      <button type="submit">Continue</button>
-    </form>
+
+    <!-- BOOKS -->
+    <div class="book-section hidden" id="bookSection">
+      <article class="book-card" onclick="window.location.href='preview-male.html'">
+        <img src="assets/male-book.jpg" alt="Free Yourself from Toxic Women" loading="lazy"/>
+        <p><strong>Free Yourself from Toxic Women</strong></p>
+      </article>
+      <article class="book-card" onclick="window.location.href='preview-female.html'">
+        <img src="assets/female-book.jpg" alt="Stay Away from the Toxic Man" loading="lazy"/>
+        <p><strong>Stay Away from the Toxic Man</strong></p>
+      </article>
+    </div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- EMAIL POPUP -->
+  <div class="popup-overlay hidden" id="emailPopup">
+    <div class="popup-content">
+      <h2>Join Heart Talk Daily</h2>
+      <p>Enter your email to get access:</p>
+      <form id="emailForm">
+        <input type="email" id="emailInput" placeholder="Enter your email" required autocomplete="email" />
+        <button type="submit">Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader-overlay hidden" id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <noscript>
+    <p style="text-align:center; color:red;">Please enable JavaScript to view this site properly.</p>
+  </noscript>
+
+  <script defer src="script.js"></script>
 </body>
 </html>
