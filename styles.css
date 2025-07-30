@@ -385,12 +385,26 @@ button[type="submit"]:hover {
 
 /* Responsive Styles */
 @media (max-width: 480px) {
+  .book-section {
+    justify-content: center;
+  }
+
   .book-card {
-    width: 100%;
+    flex: 1 1 80%;
+    max-width: 220px;
+    margin: 0 auto;
   }
 
   .book-card img {
+    width: 100%;
+    height: auto;
     aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .book-card p {
+    font-size: 13px;
+    margin: 8px;
   }
 }
 
