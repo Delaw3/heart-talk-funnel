@@ -387,12 +387,53 @@ button[type="submit"]:hover {
 @media (max-width: 480px) {
   .book-section {
     justify-content: center;
+    gap: 12px;
   }
 
   .book-card {
-    flex: 1 1 80%;
-    max-width: 220px;
-    margin: 0 auto;
+    width: 42%;
+    max-width: 160px;
+    margin: 5px 0;
+  }
+
+  .book-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2.7 / 4;
+    object-fit: cover;
+  }
+
+  .book-card p {
+    font-size: 12px;
+    margin: 6px;
+  }
+
+  input[type="email"] {
+    width: 90%;
+  }
+
+  .container {
+    padding: 20px 12px;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .book-section {
+    justify-content: center;
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .book-card {
+    width: 30%;
+    max-width: 120px;
+    margin: 6px 0;
   }
 
   .book-card img {
@@ -403,29 +444,16 @@ button[type="submit"]:hover {
   }
 
   .book-card p {
-    font-size: 13px;
-    margin: 8px;
+    font-size: 11px;
+    margin: 5px;
   }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
- .book-card {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .book-section {
-    padding: 0 15px;
-  }
-
 
   input[type="email"] {
     width: 90%;
   }
 
   .container {
-    padding: 30px 15px;
+    padding: 20px 12px;
   }
 
   .popup-content {
